@@ -10,20 +10,22 @@ box2.textContent = "Box 2";
 box3.style.backgroundColor = "green";
 box3.textContent = "Box 3";
 
-// box1.addEventListener("mouseover", () => {
-//   box1.style.backgroundColor = "green";
-// });
-// box1.addEventListener("mouseout", () => {
-//   box1.style.backgroundColor = "red";
-// });
+box1.addEventListener("mouseover", (event) => {
+  box1.style.backgroundColor = "green";
+  console.log(event.target);
+});
+box1.addEventListener("mouseout", (event) => {
+  box1.style.backgroundColor = "red";
+  console.log(event.currentTarget);
+});
 
 // återanvändbar funktion
 const boxHover = (box, color) => {
   box.style.backgroundColor = color;
 };
 
-box1.addEventListener("mouseout", () => boxHover(box1, "red"));
-box1.addEventListener("mouseover", () => boxHover(box1, "yellow"));
+// box1.addEventListener("mouseout", () => boxHover(box1, "red"));
+// box1.addEventListener("mouseover", () => boxHover(box1, "yellow"));
 box2.addEventListener("mouseover", () => boxHover(box2, "green"));
 box2.addEventListener("mouseout", () => boxHover(box2, "yellow"));
 box3.addEventListener("mouseover", () => boxHover(box3, "red"));
